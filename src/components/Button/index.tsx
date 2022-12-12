@@ -1,8 +1,13 @@
 import { ButtonContainer } from "./styles";
-import { IButtonProps } from "./types";
 
-const Button = ({ title, onClick }: IButtonProps) => {
-  return <ButtonContainer onClick={onClick}>{title}</ButtonContainer>;
+interface IButtonProps {
+  title: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  isDisabled: boolean;
+}
+
+const Button = ({ title, onClick, isDisabled }: IButtonProps) => {
+  return <ButtonContainer onClick={onClick} disabled={isDisabled}>{title}</ButtonContainer>;
 };
 
 export default Button;
